@@ -1,5 +1,5 @@
-import sensorcomp.ISensor;
 import sensorcomp.IDiscreteSensor;
+import sensorcomp.ISensor;
 import sensorcomp.WaterSensor;
 
 /** Application entry point for running sensor demos. */
