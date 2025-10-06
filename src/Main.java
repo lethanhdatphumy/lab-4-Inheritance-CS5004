@@ -1,11 +1,8 @@
 import sensorcomp.ISensor;
-import sensorcomp.SensorData;
-import sensorcomp.WaterSensor;
 import sensorcomp.IDiscreteSensor;
+import sensorcomp.WaterSensor;
 
-/**
- * Application entry point for running sensor demos.
- */
+/** Application entry point for running sensor demos. */
 public class Main {
 
   /**
