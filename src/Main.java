@@ -2,11 +2,17 @@ import sensorcomp.IDiscreteSensor;
 import sensorcomp.ISensor;
 import sensorcomp.WaterSensor;
 
-/** Application entry point for running sensor demos. */
+/**
+ * Application entry point for running sensor demos.
+ * Demonstrates water sensor behavior by taking multiple readings
+ * and reporting both numeric values and flooding status.
+ */
 public class Main {
 
   /**
    * Run the application.
+   * Creates a WaterSensor and performs 10 consecutive readings,
+   * displaying water level and flooding status for each.
    *
    * @param args command-line arguments (unused)
    */

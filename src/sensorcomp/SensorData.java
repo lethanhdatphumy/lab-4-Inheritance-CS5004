@@ -1,16 +1,18 @@
 package sensorcomp;
 
 /**
- * Deterministic data source used to simulate hardware sensor readings.
- * Cycles through a fixed sequence of values for predictable testing.
+ * Provides a simulated stream of sensor readings for testing purposes.
+ * The class cycles through a predefined array of water level readings.
  */
 public class SensorData {
   private static double[] readings = {0.1, 0.4, 0.0, 0.51, 0.5, 0.7, 0.0, 2.2, 1.0};
   private static int counter = 0;
 
   /**
-   * Get the next value in the sequence and advance the index, wrapping at the end.
-   * @return next reading value
+   * Returns the next reading from the simulated data stream.
+   * The stream cycles back to the beginning after all readings have been returned.
+   *
+   * @return the current sensor reading value
    */
   public static double currentSensorReading() {
     int value = counter;
@@ -22,7 +24,8 @@ public class SensorData {
   }
 
   /**
-   * Reset the internal index so the next call returns the first reading.
+   * Resets the reading stream back to the first value.
+   * Useful for ensuring consistent test results.
    */
   public static void reset() {
     counter = 0;

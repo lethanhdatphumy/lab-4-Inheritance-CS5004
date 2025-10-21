@@ -1,8 +1,9 @@
 package sensorcomp;
 
 /**
- * Simulates an analog atmospheric sensor that provides continuous readings.
- * Maintains the current and last reading and pulls new values from SensorData.
+ * A concrete sensor implementation that simulates atmospheric readings.
+ * This sensor maintains both current and previous reading values and
+ * retrieves new data from the SensorData stream.
  */
 public class AtmosphericSensor implements ISensor {
 
@@ -10,9 +11,9 @@ public class AtmosphericSensor implements ISensor {
   private double lastValue;
 
   /**
-   * Create a sensor initialized with an initial reading.
-   * Both current and last readings are set to the provided value.
-   * @param value initial reading
+   * Constructs an AtmosphericSensor with a specified initial reading value.
+   *
+   * @param value the initial sensor reading
    */
   public AtmosphericSensor(double value) {
 
@@ -20,7 +21,7 @@ public class AtmosphericSensor implements ISensor {
   }
 
   /**
-   * Create a sensor initialized with a reading of 0.
+   * Constructs an AtmosphericSensor with a default initial reading of 0.0.
    */
   public AtmosphericSensor() {
 
@@ -28,8 +29,9 @@ public class AtmosphericSensor implements ISensor {
   }
 
   /**
-   * Obtain the next reading from SensorData, shifting current to last.
-   * @return the new current reading
+   * Captures a new reading from the sensor data stream, saving the previous reading.
+   *
+   * @return the new current sensor reading
    */
   @Override
   public double takeNewReading() {
@@ -42,8 +44,9 @@ public class AtmosphericSensor implements ISensor {
   }
 
   /**
-   * Get the previous reading recorded before the most recent takeNewReading call.
-   * @return the last reading value
+   * Returns the previous sensor reading (prior to the most recent takeNewReading call).
+   *
+   * @return the last sensor reading
    */
   @Override
   public double lastReading() {

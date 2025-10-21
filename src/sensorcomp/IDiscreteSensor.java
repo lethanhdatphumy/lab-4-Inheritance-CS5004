@@ -1,30 +1,33 @@
 package sensorcomp;
 
 /**
- * A sensor with a discrete on/off status in addition to numeric readings.
- * Implementations should override the default numeric methods with real behavior.
+ * Represents a sensor that provides both numeric readings and discrete boolean status.
+ * Extends ISensor to add status query and manipulation capabilities.
+ * Typical use case: sensors that detect binary conditions (e.g., flooding/not flooding).
  */
 public interface IDiscreteSensor extends ISensor {
   /**
-   * The current discrete status (e.g., on/off, flooding/not flooding).
-   * @return true when active/on; false otherwise
+   * Returns the current discrete status of the sensor.
+   *
+   * @return true if the monitored condition is active, false otherwise
    */
-  boolean status(); // discrete values like "on"/ off modeled here
+  boolean status();
 
   /**
-   * Toggle the current discrete status.
+   * Toggles the current status to its opposite value.
    */
   void flipStatus();
 
   /**
-   * Explicitly set the discrete status.
-   * @param value desired status
+   * Explicitly sets the discrete status.
+   *
+   * @param value the desired status value
    */
   void setStatus(boolean value);
 
   /**
-   * Default numeric last reading for discrete sensors.
-   * Implementations should override to provide meaningful values.
+   * Default implementation returns 0. Concrete classes should override to provide actual behavior.
+   *
    * @return 0 by default
    */
   default double lastReading() {
@@ -32,8 +35,8 @@ public interface IDiscreteSensor extends ISensor {
   }
 
   /**
-   * Default implementation that does not perform a real reading.
-   * Implementations should override to return an actual reading.
+   * Default implementation returns 0. Concrete classes should override to provide actual behavior.
+   *
    * @return 0 by default
    */
   @Override
